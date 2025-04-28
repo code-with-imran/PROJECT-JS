@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Print</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgba(25, 5, 20, 0.2);
+        }
+
+        .box {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(84, 112, 204);
+            padding: 5px 20px;
+            font-size: 18px;
+            color: white;
+            position: fixed;
+            top: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .box input {
+            width: 10%;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            padding-left: 10px;
+            margin-left: 20px;
+            border: none;
+            outline: none;
+        }
+
+        .box input::-webkit-outer-spin-button,::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+        }
+
+        .box button {
+            margin-left: 20px;
+            width: 120px;
+            height: 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .show {
+            width: 30%;
+            height: auto;
+            border: 1px solid salmon;
+            margin: 0 auto;
+            font-size: 20px;
+            color: blue;
+            text-align: center;        
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+       <p>Print Table</p>
+        <input id="start" type="number" placeholder="Start table"> <span>To</span>
+        <input id="end" type="number" placeholder="End table">
+        <button class="submit">submit</button>
+    </div>
+    <div class="show">
+
+    </div>
+
+    <script>
+        let start = document.getElementById("start");
+        let end = document.getElementById("end");
+        let btn = document.querySelector(".submit");
+        let show = document.querySelector(".show");
+        btn.addEventListener("click",sum);
+        
+        function sum(){
+            show.innerHTML = " ";
+            for(a = start.value; a <= end.value; a++){
+            for (let i = 1; i <= 10; i++) {
+                const result = a * i;
+                console.log(`${a} * ${i} = ${result}`)
+                show.innerHTML += (`${a} * ${i} = ${result}<br>`)
+            }
+            show.innerHTML += "<br>"
+        }
+
+    }
+   
+
+    </script>
+</body>
+
+</html>
